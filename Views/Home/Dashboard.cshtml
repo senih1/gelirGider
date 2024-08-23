@@ -1,0 +1,83 @@
+﻿@model Total
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="chart-container">
+    <canvas id="income"></canvas>
+    <canvas id="outcome"></canvas>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<script>
+    function renderChartOutcome() {
+    const xValues = [
+        @foreach(var value in Model.Outcome)
+    {
+        @Html.Raw("'" + value.Name + "',");
+    }
+    ];
+    const yValues = [@Html.Raw(string.Join(",", Model.Outcome.Select(i => i.Price.ToString())))];
+        const barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145"
+        ];
+
+        new Chart("outcome", {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Giderler"
+                }
+            }
+        });
+    };
+
+</script>
+<script>
+    function renderChartIncome() {
+        const xValues = [
+    @foreach (var value in Model.Income)
+    {
+        @Html.Raw("'" + value.Name + "',")
+        ;
+    }
+        ];
+        const yValues = [@Html.Raw(string.Join(",", Model.Income.Select(i => i.Price.ToString())))];
+        const barColors = [
+            "#b91d47",
+            "#00aba9",
+            "#2b5797",
+            "#e8c3b9",
+            "#1e7145"
+        ];
+
+        new Chart("income", {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Gelirler"
+                }
+            }
+        });
+    };
+</script>

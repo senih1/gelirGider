@@ -1,0 +1,115 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.chart-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: -100px; 
+}
+
+
+canvas {
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+    z-index: 1;
+    margin: 0 -150px;
+}
+/* Form styles */
+form {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    form h2 {
+        margin-top: 0;
+        font-weight: bold;
+        font-size: 24px;
+        text-align: center;
+        color: #333;
+    }
+
+    form p {
+        margin-bottom: 20px;
+    }
+
+    form input[type="text"], form input[type="number"], form input[type="password"], form input[type="email"], form select {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+    }
+
+        form input[type="text"]:focus, form input[type="number"]:focus, form select:focus {
+            border-color: #aaa;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+    form button[type="submit"] {
+        width: 100%;
+        height: 40px;
+        padding: 10px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        form button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+/* Alert styles */
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
+}
+h2 {
+    margin-top: 0;
+    font-weight: bold !important;
+    font-size: 34px !important;
+    text-align: center !important;
+    color: #333 !important;
+}

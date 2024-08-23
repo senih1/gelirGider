@@ -1,0 +1,37 @@
+﻿@model List<Category>
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+@if (TempData["Alert"] != null)
+{
+    <div class="alert @TempData["AlertCss"] mb-5" role="alert">
+        @TempData["Alert"]
+    </div>
+}
+<h2>Gelir-Gider Ekle</h2>
+<form action="/addIncome" method="post">
+    <p><input type="text" required name="name" placeholder="Gelir-Gider İsmi" /></p>
+    <p><input type="number" required name="price" placeholder="Gelir-Gider Para Miktarı" /></p>
+    <p>
+        <select name="type" required>
+            <option value="false">Gelir</option>
+            <option value="true">Gider</option>
+        </select>
+    </p>
+    <p>
+        <select name="categoryId" required>
+            @foreach(var category in Model)
+            {
+                <option value="@category.Id">@category.Name</option>
+            }
+        </select>
+    </p>
+    <p><input type="hidden" value="@ViewData["UserId"]" name="userId"/></p>
+    <button type="submit">Ekle</button>
+</form>
+
+<h2>Kategori Ekle</h2>
+<form method="post" action="addCategory">
+    <p><input name="name"type="text" required placeholder="Kategori İsmi"/></p>
+    <button type="submit">Ekle</button>
+</form>

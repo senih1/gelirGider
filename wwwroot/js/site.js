@@ -1,0 +1,2 @@
+﻿renderChartOutcome();
+renderChartIncome();
